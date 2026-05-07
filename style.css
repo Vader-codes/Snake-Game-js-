@@ -11,6 +11,8 @@ body {
 :root {
   /* --background colors-- */
   --bg-primary-color: #0c0c0c;
+  --bg-fill-color: #fdfdfc;
+  --bg-food-color: #ff3b3b;
 
   /* text--colors */
   --text-primary-color: #f0f0f0;
@@ -29,12 +31,12 @@ body {
 
   /* border-radius variables */
 
-  --border-raidus-xs: 4px;
-  --border-raidus-sm: 8px;
-  --border-raidus-md: 12px;
-  --border-raidus-lg: 16px;
-  --border-raidus-xl: 20px;
-  --border-raidus-2xl: 24px;
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --border-radius-2xl: 24px;
 }
 
 html {
@@ -57,7 +59,23 @@ main,
 section {
   width: 100%;
   height: 100%;
+}
+.btn {
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+section {
   padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--space-lg);
 }
 section .infos {
   width: 100%;
@@ -67,4 +85,43 @@ section .infos {
 .info {
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--border-primary-color);
+  border-radius: var(--border-radius-sm);
+}
+.board {
+  border: 1px solid var(--border-primary-color);
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(30px 1fr));
+}
+.block {
+  border: 1px solid var(--border-primary-color);
+  border-radius: 50%;
+}
+.fill {
+  background-color: var(--bg-fill-color);
+}
+.food {
+  background-color: var(--bg-food-color);
+}
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #35353587;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .start-game,
+.modal .game-over {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+.modal .game-over {
+  display: none;
 }
