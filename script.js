@@ -45,6 +45,7 @@ let timerIntevalId = null;
 function render() {
   // update highScore when game renders
   highScoreElement.innerText = highScore;
+
   let head = null;
   blocks[`${food.x}-${food.y}`].classList.add("food");
 
@@ -111,8 +112,6 @@ function render() {
   });
 }
 function restartGame() {
-  clearInterval(intervalId);
-  clearInterval(timerIntevalId);
   // pause the audio
   gameOverAudio.pause();
   gameOverAudio.currentTime = 0;
