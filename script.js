@@ -20,7 +20,6 @@ const scoreElement = document.querySelector("#score");
 const foodAudio = new Audio("./audio/food.mp3");
 const gameOverAudio = new Audio("./audio/gameover.mp3");
 let highScore = Number(localStorage.getItem("highScore")) || 0;
-highScoreElement.innerText = highScore;
 let time = `00-00`;
 let score = 0;
 // create a random location of food item on x and y plane on the board
@@ -44,6 +43,8 @@ let direction = "down";
 let intervalId = null;
 let timerIntevalId = null;
 function render() {
+  // update highScore when game renders
+  highScoreElement.innerText = highScore;
   let head = null;
   blocks[`${food.x}-${food.y}`].classList.add("food");
 
